@@ -16,12 +16,20 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/core';
-import { MatMomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
+import {
+  DateAdapter,
+  MAT_DATE_LOCALE,
+  MAT_DATE_FORMATS,
+} from '@angular/material/core';
+import {
+  MatMomentDateModule,
+  MomentDateAdapter,
+} from '@angular/material-moment-adapter';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
@@ -46,20 +54,20 @@ const modules = [
   MatTableModule,
   MatPaginatorModule,
   MatAutocompleteModule,
-  NgxMaterialTimepickerModule
+  MatDialogModule,
+  NgxMaterialTimepickerModule,
 ];
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    ...modules
-  ],
-  exports: [
-    ...modules
-  ],
+  imports: [CommonModule, ...modules],
+  exports: [...modules],
   providers: [
-    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE],
+    },
     {
       provide: MAT_DATE_FORMATS,
       useValue: {
@@ -72,8 +80,8 @@ const modules = [
           dateA11yLabel: 'LLL',
           monthYearA11yLabel: 'MMMM YYYY',
         },
-      }
-    }
-  ]
+      },
+    },
+  ],
 })
-export class MaterializeModule { }
+export class MaterializeModule {}
