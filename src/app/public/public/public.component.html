@@ -1,0 +1,23 @@
+<!-- app header -->
+<app-header></app-header>
+<mat-sidenav-container fullScreen [hasBackdrop]="(isHandset$ | async) ? true : false">
+    <mat-sidenav id="sidenav-container" #sidenav [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'push' : 'side'" [opened]="(isHandset$ | async) === false">
+        <div class="d-flex flex-column h-100">
+            <span>
+                <mat-toolbar color="primary">
+                    <button mat-icon-button (click)="utilService.closeSidenav()">
+                        <mat-icon>arrow_backward</mat-icon>
+                    </button>
+                </mat-toolbar>
+            </span>
+            <ng-scrollbar position="invertY" class="flex-fill my-scrollbar">
+                <app-sidenav></app-sidenav>
+            </ng-scrollbar>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content id="sidenav-content">
+        <!-- app container -->
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,40 @@
+<mat-toolbar id="app-toolbar" class="sticky-top shadow-sm">
+    <button mat-icon-button (click)="utilService.toggleSidenav()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <a routerLink="/">
+        <img src="https://www.fidelity.com/intlacct/images/fidelityweblogo.gif" alt="">
+    </a>
+    <span class="flex-fill"></span>
+    <button mat-icon-button>
+        <mat-icon>notifications</mat-icon>
+    </button>
+    <button mat-stroked-button class="rounded-pill px-2" [matMenuTriggerFor]="menu">
+        <span>
+            <img src="https://i.pravatar.cc/25?img=9" class="img-fluid rounded-circle" alt="">
+        </span>
+        <span class="mx-2">Disha</span>
+        <mat-icon>expand_more</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <mat-list>
+            <mat-list-item>
+                <img matListAvatar src="https://i.pravatar.cc/40?img=9" class="img-fluid rounded-circle">
+                <h3 matLine> Disha Garg</h3>
+                <small matLine>
+                    <span> disha@email.com </span>
+                </small>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+                <mat-icon matListIcon>settings</mat-icon>
+                <h3 matLine> Settings </h3>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+                <mat-icon matListIcon>power_settings_new</mat-icon>
+                <h3 matLine> Sign Out </h3>
+            </mat-list-item>
+        </mat-list>
+    </mat-menu>
+</mat-toolbar>
