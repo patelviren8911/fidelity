@@ -30,7 +30,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { MatTabsModule } from '@angular/material/tabs';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 const modules = [
@@ -55,6 +55,7 @@ const modules = [
   MatPaginatorModule,
   MatAutocompleteModule,
   MatDialogModule,
+  MatTabsModule,
   NgxMaterialTimepickerModule,
 ];
 

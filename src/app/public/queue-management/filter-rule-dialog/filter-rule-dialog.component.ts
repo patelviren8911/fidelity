@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'app-filter-rule-dialog',
@@ -14,7 +14,9 @@ export class FilterRuleDialogComponent implements OnInit {
   ngOnInit(): void {
     if (this.data.hasOwnProperty('id')) {
       this.edit = true;
-      this.myFormGroup = new FormGroup({});
+      this.myFormGroup = new FormGroup({
+        abl: new FormControl(),
+      });
     } else {
       this.edit = false;
       this.myFormGroup = new FormGroup({});
