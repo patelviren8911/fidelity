@@ -1,275 +1,443 @@
-<div class="main-container">
-  <!-- app bar -->
-  <mat-toolbar>
-    <button mat-icon-button color="primary" class="example-icon" (click)="utilService.goBack()">
-      <mat-icon>arrow_back</mat-icon>
-    </button>
-    <span>Add Queue</span>
-  </mat-toolbar>
-  <!-- main content -->
-  <div class="container-fluid">
-    <mat-accordion>
-      <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <h6 class="text-primary">
-              <span>Queue Information</span>
-            </h6>
-          </mat-panel-title>
-        </mat-expansion-panel-header>
+<div class="main-container pb-5">
+    <!-- app bar -->
+    <mat-toolbar>
+        <span>Add Queue</span>
+    </mat-toolbar>
+    <!-- main content -->
+    <div class="container-fluid">
+        <mat-accordion>
+            <!-- first accordion -->
+            <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <h6 class="text-primary">
+                            <span>Queue Information</span>
+                        </h6>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
 
-        <form [formGroup]="qIFormGroup">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                <!-- child row -->
-                <div class="row">
-                  <div class="col-12 col-lg-12 col-xl-12">
-                    <mat-form-field appearance="fill" class="w-100">
-                      <mat-label>Queue Name</mat-label>
-                      <input matInput placeholder="Queue Name" />
-                    </mat-form-field>
-                  </div>
-                  <div class="col-12 col-lg-12 col-xl-12">
-                    <mat-form-field appearance="fill" class="w-100">
-                      <mat-label>Queue Description</mat-label>
-                      <input matInput placeholder="Queue Description" />
-                    </mat-form-field>
-                  </div>
-                  <div class="col-12 col-lg-12 col-xl-12">
-                    <mat-form-field appearance="fill" class="w-100">
-                      <mat-label>Business Group</mat-label>
-                      <mat-select>
-                        <mat-option> Select </mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                  </div>
-                  <div class="col-12"></div>
-                  <div class="col-12 col-lg-4 col-xl-3 pb-4">
-                    <label class="d-block">Active</label>
-                    <mat-slide-toggle>
-                    </mat-slide-toggle>
-                  </div>
-                  <div class="col-12"></div>
-                  <div class="col-12 col-lg-4 col-xl-3 pb-4">
-                    <label class="d-block">FIFO enables </label>
-                    <mat-slide-toggle>
-                    </mat-slide-toggle>
-                  </div>
-                  <div class="col-12">
-                    <mat-form-field appearance="fill" class="w-100">
-                      <mat-label>Queue Notification Recipients</mat-label>
-                      <textarea matInput placeholder="Queue Notification Recipients"></textarea>
-                    </mat-form-field>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
+                <form [formGroup]="qIFormGroup">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <!-- child row -->
+                                <div class="row">
+                                    <div class="col-12 col-lg-12 col-xl-12">
+                                        <mat-form-field appearance="fill" class="w-100">
+                                            <mat-label>Queue Name</mat-label>
+                                            <input matInput placeholder="Queue Name" formControlName="queueName" />
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-12 col-lg-12 col-xl-12">
+                                        <mat-form-field appearance="fill" class="w-100">
+                                            <mat-label>Queue Description</mat-label>
+                                            <input matInput placeholder="Queue Description" formControlName="queueDescription" />
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-12 col-lg-12 col-xl-12">
+                                        <mat-form-field appearance="fill" class="w-100">
+                                            <mat-label>Business Group</mat-label>
+                                            <input matInput placeholder="Business Group" formControlName="businessGroup" />
+                                            <mat-select>
+                                                <mat-option> Select </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-12"></div>
+                                    <div class="col-12 col-lg-4 col-xl-3 pb-4">
+                                        <label class="d-block">Active</label>
+                                        <mat-slide-toggle matInput placeholder="Active" formControlName="active">
+                                        </mat-slide-toggle>
+                                    </div>
+                                    <div class="col-12"></div>
+                                    <div class="col-12 col-lg-4 col-xl-3 pb-4">
+                                        <label class="d-block">FIFO enables </label>
+                                        <mat-slide-toggle matInput placeholder="FIFO enables" formControlName="fifoEnables">
+                                        </mat-slide-toggle>
+                                    </div>
+                                    <div class="col-12">
+                                        <mat-form-field appearance="fill" class="w-100">
+                                            <mat-label>Queue Notification Recipients</mat-label>
+                                            <textarea matInput placeholder="Queue Notification Recipients" formControlName="queueRecipients"></textarea>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
 
-        <mat-action-row>
-          <button mat-button color="primary" (click)="nextStep()">Next</button>
-        </mat-action-row>
-      </mat-expansion-panel>
+                <mat-action-row>
+                    <button mat-button color="primary" (click)="nextStep()">Next</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+            <!-- second accordion -->
+            <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <h6 class="text-primary">Distribution Schedule</h6>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
 
-      <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <h6 class="text-primary">Distribution Schedule</h6>
-          </mat-panel-title>
-        </mat-expansion-panel-header>
+                <form [formGroup]="schedulerFormGroup">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <h6 class="text-primary"></h6>
+                            </div>
+                            <div class="col-12">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Select</th>
+                                            <th>Day of week</th>
+                                            <th width="120">start time</th>
+                                            <th width="120">end time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <mat-slide-toggle> </mat-slide-toggle>
+                                            </td>
+                                            <td>Monday</td>
+                                            <td>
+                                                <input [ngxTimepicker]="msPicker" placeholder="start time" />
+                                                <ngx-material-timepicker #msPicker></ngx-material-timepicker>
+                                            </td>
+                                            <td>
+                                                <input [ngxTimepicker]="mePicker" placeholder="end time" />
+                                                <ngx-material-timepicker #mePicker></ngx-material-timepicker>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <mat-slide-toggle> </mat-slide-toggle>
+                                            </td>
+                                            <td>Tuesday</td>
+                                            <td>
+                                                <input [ngxTimepicker]="tsPicker" placeholder="start time" />
+                                                <ngx-material-timepicker #tsPicker></ngx-material-timepicker>
+                                            </td>
+                                            <td>
+                                                <input [ngxTimepicker]="tePicker" placeholder="end time" />
+                                                <ngx-material-timepicker #tePicker></ngx-material-timepicker>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <mat-slide-toggle> </mat-slide-toggle>
+                                            </td>
+                                            <td>Wednesday</td>
+                                            <td>
+                                                <input [ngxTimepicker]="wsPicker" placeholder="start time" />
+                                                <ngx-material-timepicker #wsPicker></ngx-material-timepicker>
+                                            </td>
+                                            <td>
+                                                <input [ngxTimepicker]="wePicker" placeholder="end time" />
+                                                <ngx-material-timepicker #wePicker></ngx-material-timepicker>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <mat-slide-toggle> </mat-slide-toggle>
+                                            </td>
+                                            <td>Thursday</td>
+                                            <td>
+                                                <input [ngxTimepicker]="thsPicker" placeholder="start time" />
+                                                <ngx-material-timepicker #thsPicker></ngx-material-timepicker>
+                                            </td>
+                                            <td>
+                                                <input [ngxTimepicker]="thePicker" placeholder="end time" />
+                                                <ngx-material-timepicker #thePicker></ngx-material-timepicker>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <mat-slide-toggle> </mat-slide-toggle>
+                                            </td>
+                                            <td>Friday</td>
+                                            <td>
+                                                <input [ngxTimepicker]="fsPicker" placeholder="start time" />
+                                                <ngx-material-timepicker #fsPicker></ngx-material-timepicker>
+                                            </td>
+                                            <td>
+                                                <input [ngxTimepicker]="fePicker" placeholder="end time" />
+                                                <ngx-material-timepicker #fePicker></ngx-material-timepicker>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <mat-slide-toggle> </mat-slide-toggle>
+                                            </td>
+                                            <td>Saturday</td>
+                                            <td>
+                                                <input [ngxTimepicker]="ssPicker" placeholder="start time" />
+                                                <ngx-material-timepicker #ssPicker></ngx-material-timepicker>
+                                            </td>
+                                            <td>
+                                                <input [ngxTimepicker]="sePicker" placeholder="end time" />
+                                                <ngx-material-timepicker #sePicker></ngx-material-timepicker>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <mat-slide-toggle> </mat-slide-toggle>
+                                            </td>
+                                            <td>Sunday</td>
+                                            <td>
+                                                <input [ngxTimepicker]="sunsPicker" placeholder="start time" />
+                                                <ngx-material-timepicker #sunsPicker></ngx-material-timepicker>
+                                            </td>
+                                            <td>
+                                                <input [ngxTimepicker]="sunePicker" placeholder="end time" />
+                                                <ngx-material-timepicker #sunePicker></ngx-material-timepicker>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </mat-expansion-panel>
+            <!-- third accordion -->
+            <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <h6 class="text-primary">Add Rules</h6>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
 
-        <form [formGroup]="schedulerFormGroup">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-12">
-                <h6 class="text-primary"></h6>
-              </div>
-              <div class="col-12">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Select</th>
-                      <th>Day of week</th>
-                      <th width="120">start time</th>
-                      <th width="120">end time</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <mat-slide-toggle> </mat-slide-toggle>
-                      </td>
-                      <td>Monday</td>
-                      <td>
-                        <input [ngxTimepicker]="msPicker" placeholder="start time" />
-                        <ngx-material-timepicker #msPicker></ngx-material-timepicker>
-                      </td>
-                      <td>
-                        <input [ngxTimepicker]="mePicker" placeholder="end time" />
-                        <ngx-material-timepicker #mePicker></ngx-material-timepicker>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <mat-slide-toggle> </mat-slide-toggle>
-                      </td>
-                      <td>Tuesday</td>
-                      <td>
-                        <input [ngxTimepicker]="tsPicker" placeholder="start time" />
-                        <ngx-material-timepicker #tsPicker></ngx-material-timepicker>
-                      </td>
-                      <td>
-                        <input [ngxTimepicker]="tePicker" placeholder="end time" />
-                        <ngx-material-timepicker #tePicker></ngx-material-timepicker>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <mat-slide-toggle> </mat-slide-toggle>
-                      </td>
-                      <td>Wednesday</td>
-                      <td>
-                        <input [ngxTimepicker]="wsPicker" placeholder="start time" />
-                        <ngx-material-timepicker #wsPicker></ngx-material-timepicker>
-                      </td>
-                      <td>
-                        <input [ngxTimepicker]="wePicker" placeholder="end time" />
-                        <ngx-material-timepicker #wePicker></ngx-material-timepicker>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <mat-slide-toggle> </mat-slide-toggle>
-                      </td>
-                      <td>Thursday</td>
-                      <td>
-                        <input [ngxTimepicker]="thsPicker" placeholder="start time" />
-                        <ngx-material-timepicker #thsPicker></ngx-material-timepicker>
-                      </td>
-                      <td>
-                        <input [ngxTimepicker]="thePicker" placeholder="end time" />
-                        <ngx-material-timepicker #thePicker></ngx-material-timepicker>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <mat-slide-toggle> </mat-slide-toggle>
-                      </td>
-                      <td>Friday</td>
-                      <td>
-                        <input [ngxTimepicker]="fsPicker" placeholder="start time" />
-                        <ngx-material-timepicker #fsPicker></ngx-material-timepicker>
-                      </td>
-                      <td>
-                        <input [ngxTimepicker]="fePicker" placeholder="end time" />
-                        <ngx-material-timepicker #fePicker></ngx-material-timepicker>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <mat-slide-toggle> </mat-slide-toggle>
-                      </td>
-                      <td>Saturday</td>
-                      <td>
-                        <input [ngxTimepicker]="ssPicker" placeholder="start time" />
-                        <ngx-material-timepicker #ssPicker></ngx-material-timepicker>
-                      </td>
-                      <td>
-                        <input [ngxTimepicker]="sePicker" placeholder="end time" />
-                        <ngx-material-timepicker #sePicker></ngx-material-timepicker>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <mat-slide-toggle> </mat-slide-toggle>
-                      </td>
-                      <td>Sunday</td>
-                      <td>
-                        <input [ngxTimepicker]="sunsPicker" placeholder="start time" />
-                        <ngx-material-timepicker #sunsPicker></ngx-material-timepicker>
-                      </td>
-                      <td>
-                        <input [ngxTimepicker]="sunePicker" placeholder="end time" />
-                        <ngx-material-timepicker #sunePicker></ngx-material-timepicker>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </form>
-      </mat-expansion-panel>
+                <form [formGroup]="filersFormGroup">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12 col-lg-8">
+                                <div class="row">
+                                    <div class="col-12 col-lg-8 col-xl-8">
+                                        <mat-form-field class="w-100" appearance="fill">
+                                            <mat-label>Search Distribution filter</mat-label>
+                                            <input matInput placeholder="Search DF" />
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-12 col-lg-1">
+                                        <h4>OR</h4>
+                                    </div>
+                                    <div class="col-12 col-lg-3">
+                                        <button mat-raised-button color="primary" (click)="isNewRule = !isNewRule">
+                                            <mat-icon>add</mat-icon>
+                                            <span>Add Rule</span>
+                                        </button>
+                                    </div>
+                                    <div class="col-12" *ngIf="!isNewRule else searchRule">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Distribution filters</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr></tr>
+                                            </tbody>
+                                        </table>
+                                        <fieldset class="formFieldSet">
+                                            <div class="container-fluid pt-3">
+                                                <legend>Add Rule</legend>
+                                                <div class="row gx-2">
+                                                    <div class="col-4">
+                                                        <mat-form-field class="w-100" appearance="fill">
+                                                            <mat-label>Router based on</mat-label>
+                                                            <input matInput placeholder="Router based on" />
+                                                        </mat-form-field>
+                                                    </div>
 
-      <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <h6 class="text-primary">Add Rules</h6>
-          </mat-panel-title>
-        </mat-expansion-panel-header>
+                                                    <div class="col-8">
+                                                        <mat-form-field appearance="fill" class="w-100">
+                                                            <mat-label>Type of Associate filter</mat-label>
+                                                            <mat-select>
+                                                                <mat-option *ngFor="let filter of filterItems" [value]="filter.id">
+                                                                    {{filter.item}}
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </div>
 
-        <form [formGroup]="filersFormGroup">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-12 col-lg-8">
-                <div class="row">
-                  <div class="col-12 col-lg-8 col-xl-8">
-                    <mat-form-field class="w-100" appearance="fill">
-                      <mat-label>Search Distribution filter</mat-label>
-                      <input matInput placeholder="Search DF" />
-                    </mat-form-field>
-                  </div>
-                  <div class="col-12 col-lg-1">
-                    <h4>OR</h4>
-                  </div>
-                  <div class="col-12 col-lg-3">
-                    <button mat-raised-button color="primary" (click)="openDialog({})">
-                      <mat-icon>add</mat-icon>
-                      <span>Add Rule</span>
-                    </button>
-                  </div>
-                  <div class="col-12">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th>Distribution filters</th>
-                          <th>Actions</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr></tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-lg-4">
+                                                    <div class="col-4">
+                                                        <mat-form-field class="w-100" appearance="fill">
+                                                            <mat-label>Default destination</mat-label>
+                                                            <input matInput placeholder="Default destination" />
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-4"></div>
+                                                    <div class="col-4"></div>
 
-                <h6 class="text-primary">Added rules</h6>
-                <table class="table table-striped">
-                  <ng-container *ngFor="let item of filterItems">
-                    <thead>
-                      <tr>
-                        <th>{{ item.item }}</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let childItem of item.associateFilters">
-                        <td>{{ childItem.item }}</td>
-                      </tr>
-                    </tbody>
-                  </ng-container>
-                </table>
-              </div>
-            </div>
-          </div>
-        </form>
-      </mat-expansion-panel>
-    </mat-accordion>
-  </div>
+                                                    <div class="col-2">
+                                                        <mat-form-field class="w-100" appearance="fill">
+                                                            <mat-label>Update field</mat-label>
+                                                            <input matInput placeholder="Update field" />
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <mat-form-field appearance="fill" class="w-100">
+                                                            <mat-label>Field type</mat-label>
+                                                            <mat-select>
+                                                                <mat-option *ngFor="let filter of filterItems" [value]="filter.id">
+                                                                    {{filter.item}}
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <mat-form-field class="w-100" appearance="fill">
+                                                            <mat-label>Based on</mat-label>
+                                                            <input matInput placeholder="Based on" />
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <mat-form-field appearance="fill" class="w-100">
+                                                            <mat-label>Field type</mat-label>
+                                                            <mat-select>
+                                                                <mat-option *ngFor="let filter of filterItems" [value]="filter.id">
+                                                                    {{filter.item}}
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <mat-form-field class="w-100" appearance="fill">
+                                                            <mat-label>to</mat-label>
+                                                            <input matInput placeholder="to" />
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <mat-form-field class="w-100" appearance="fill">
+                                                            <mat-label>Value</mat-label>
+                                                            <input matInput placeholder="Description" />
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <!-- new rule template -->
+                                    <ng-template #searchRule>
+                                        <fieldset class="formFieldSet">
+                                            <div class="container-fluid pt-3">
+                                                <legend>Add Rule</legend>
+                                                <div class="row gx-2">
+                                                    <div class="col-12">
+                                                        <mat-form-field class="w-100" appearance="fill">
+                                                            <mat-label>Name</mat-label>
+                                                            <input matInput placeholder="Name" />
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <mat-form-field class="w-100" appearance="fill">
+                                                            <mat-label>Description</mat-label>
+                                                            <input matInput placeholder="Description" />
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <mat-form-field appearance="fill" class="w-100">
+                                                            <mat-label>Rule Name</mat-label>
+                                                            <mat-select>
+                                                                <mat-option *ngFor="let filter of filterItems" [value]="filter.id">
+                                                                    {{filter.item}}
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </div>
+
+                                                    <div class="col-4">
+                                                        <mat-form-field appearance="fill" class="w-100">
+                                                            <mat-label>Type</mat-label>
+                                                            <mat-select>
+                                                                <mat-option>
+                                                                    Work item history
+                                                                </mat-option>
+                                                                <mat-option>
+                                                                    Default destination
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-12"></div>
+                                                    <div class="col-2 pb-3">
+                                                        <label class="d-block">Active</label>
+                                                        <mat-slide-toggle> </mat-slide-toggle>
+                                                    </div>
+
+                                                    <div class="col-12"></div>
+                                                </div>
+                                                <legend>Criteria</legend>
+                                                <div class="row gx-2" *ngFor="let item of [1,2,3,4]">
+                                                    <div class="col-3">
+                                                        <mat-form-field appearance="fill" class="w-100">
+                                                            <mat-label>Item Type</mat-label>
+                                                            <mat-select>
+                                                                <mat-option>
+                                                                    Select
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </div>
+
+                                                    <div class="col-3">
+                                                        <mat-form-field class="w-100" appearance="fill">
+                                                            <mat-label>Operator</mat-label>
+                                                            <mat-select>
+                                                                <mat-option>Equal</mat-option>
+                                                                <mat-option>Greater</mat-option>
+                                                                <mat-option>Less</mat-option>
+                                                                <mat-option>Not equal</mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <mat-form-field class="w-100" appearance="fill">
+                                                            <mat-label>Value</mat-label>
+                                                            <input matInput placeholder="Description" />
+                                                        </mat-form-field>
+                                                    </div>
+
+                                                    <div class="col-2">
+                                                        <button mat-icon-button color="primary">
+                                                            <mat-icon>add</mat-icon>
+                                                        </button>
+                                                        <button mat-icon-button color="warn">
+                                                            <mat-icon>remove</mat-icon>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </ng-template>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+
+                                <h6 class="text-primary">Added rules</h6>
+                                <table class="table table-striped">
+                                    <ng-container *ngFor="let item of filterItems">
+                                        <thead>
+                                            <tr>
+                                                <th>{{ item.item }}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let childItem of item.associateFilters">
+                                                <td>{{ childItem.item }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </ng-container>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
 </div>

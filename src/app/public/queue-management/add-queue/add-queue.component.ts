@@ -14,14 +14,24 @@ export class AddQueueComponent implements OnInit, AfterViewInit {
   qIFormGroup!: FormGroup;
   schedulerFormGroup!: FormGroup;
   filersFormGroup!: FormGroup;
-
+  isNewRule?:boolean;
   filterItems?: any[];
   constructor(public utilService: UtilService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.qIFormGroup = new FormGroup({});
+    this.isNewRule = true;
+    this.qIFormGroup = new FormGroup({
+      queueName : new FormControl (''),
+      queueDescription : new FormControl(''),
+      businessGroup: new FormControl(''),
+      queueRecipients: new FormControl(''),
+      active: new FormControl(''),
+      fifoEnables: new FormControl(''),
+
+    });
     this.filersFormGroup = new FormGroup({
       filterRules: new FormControl(),
+      
     });
 
     this.filterItems = [
