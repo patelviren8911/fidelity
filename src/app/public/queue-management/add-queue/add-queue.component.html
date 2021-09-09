@@ -279,45 +279,47 @@
 
                                                 <div class="col-12"></div>
                                             </div>
-
-                                            <div class="row gx-2" *ngFor="let item of [1,2,3,4]" [hidden]="hiddenCriteria">
+                                            <div class="row" [hidden]="hiddenCriteria">
                                                 <legend>Criteria</legend>
-                                                <div class="col-3">
-                                                    <mat-form-field appearance="fill" class="w-100">
-                                                        <mat-label>Item Type</mat-label>
-                                                        <mat-select>
-                                                            <mat-option>
-                                                                Select
-                                                            </mat-option>
-                                                        </mat-select>
-                                                    </mat-form-field>
-                                                </div>
+                                                <div class="row gx-2" *ngFor="let item of [1,2,3,4]">
 
-                                                <div class="col-3">
-                                                    <mat-form-field class="w-100" appearance="fill">
-                                                        <mat-label>Operator</mat-label>
-                                                        <mat-select>
-                                                            <mat-option>Equal</mat-option>
-                                                            <mat-option>Greater</mat-option>
-                                                            <mat-option>Less</mat-option>
-                                                            <mat-option>Not equal</mat-option>
-                                                        </mat-select>
-                                                    </mat-form-field>
-                                                </div>
-                                                <div class="col-3">
-                                                    <mat-form-field class="w-100" appearance="fill">
-                                                        <mat-label>Value</mat-label>
-                                                        <input matInput placeholder="Description" />
-                                                    </mat-form-field>
-                                                </div>
+                                                    <div class="col-3">
+                                                        <mat-form-field appearance="fill" class="w-100">
+                                                            <mat-label>Item Type</mat-label>
+                                                            <mat-select>
+                                                                <mat-option>
+                                                                    Select
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </div>
 
-                                                <div class="col-2">
-                                                    <button mat-icon-button color="primary">
+                                                    <div class="col-3">
+                                                        <mat-form-field class="w-100" appearance="fill">
+                                                            <mat-label>Operator</mat-label>
+                                                            <mat-select>
+                                                                <mat-option>Equal</mat-option>
+                                                                <mat-option>Greater</mat-option>
+                                                                <mat-option>Less</mat-option>
+                                                                <mat-option>Not equal</mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <mat-form-field class="w-100" appearance="fill">
+                                                            <mat-label>Value</mat-label>
+                                                            <input matInput placeholder="Description" />
+                                                        </mat-form-field>
+                                                    </div>
+
+                                                    <div class="col-2">
+                                                        <button mat-icon-button color="primary">
                                                             <mat-icon>add</mat-icon>
                                                         </button>
-                                                    <button mat-icon-button color="warn">
+                                                        <button mat-icon-button color="warn">
                                                             <mat-icon>remove</mat-icon>
                                                         </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="row gx-2" [hidden]="hiddenDistribution">
