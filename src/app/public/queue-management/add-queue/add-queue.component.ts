@@ -15,11 +15,16 @@ export class AddQueueComponent implements OnInit, AfterViewInit {
   schedulerFormGroup!: FormGroup;
   filersFormGroup!: FormGroup;
   isNewRule?:boolean;
+  hiddenCriteria?:boolean;
+  hiddenDistribution?:boolean;
+  types:any[]=['Work Item History', 'Default destination'];
   filterItems?: any[];
   constructor(public utilService: UtilService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.isNewRule = true;
+    this.hiddenCriteria = true;
+    this.hiddenDistribution = true;
     this.qIFormGroup = new FormGroup({
       queueName : new FormControl (''),
       queueDescription : new FormControl(''),
@@ -85,5 +90,15 @@ export class AddQueueComponent implements OnInit, AfterViewInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  onChangeType(value:any) {
+    if (value === 'Work Item History') {
+      this.hiddenCriteria = false;
+      this.hiddenDistribution = true;
+    } else if (value === 'Default destination') {
+      this.hiddenCriteria = true;
+      this.hiddenDistribution = false;
+    }
   }
 }

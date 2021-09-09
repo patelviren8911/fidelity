@@ -214,7 +214,7 @@
                         <div class="row">
                             <div class="col-12 col-lg-8">
                                 <div class="row">
-                                    <div class="col-12 col-lg-8 col-xl-8">
+                                    <!-- <div class="col-12 col-lg-8 col-xl-8">
                                         <mat-form-field class="w-100" appearance="fill">
                                             <mat-label>Search Distribution filter</mat-label>
                                             <input matInput placeholder="Search DF" />
@@ -228,192 +228,180 @@
                                             <mat-icon>add</mat-icon>
                                             <span>Add Rule</span>
                                         </button>
-                                    </div>
-                                    <div class="col-12" *ngIf="!isNewRule else searchRule">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Distribution filters</th>
-                                                    <th>Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr></tr>
-                                            </tbody>
-                                        </table>
-                                        <fieldset class="formFieldSet">
-                                            <div class="container-fluid pt-3">
-                                                <legend>Add Rule</legend>
-                                                <div class="row gx-2">
-                                                    <div class="col-4">
-                                                        <mat-form-field class="w-100" appearance="fill">
-                                                            <mat-label>Router based on</mat-label>
-                                                            <input matInput placeholder="Router based on" />
-                                                        </mat-form-field>
-                                                    </div>
+                                    </div> -->
+                                    <!-- <div class="col-12" *ngIf="!isNewRule else searchRule"> -->
+                                    <fieldset class="formFieldSet">
 
-                                                    <div class="col-8">
-                                                        <mat-form-field appearance="fill" class="w-100">
-                                                            <mat-label>Type of Associate filter</mat-label>
-                                                            <mat-select>
-                                                                <mat-option *ngFor="let filter of filterItems" [value]="filter.id">
-                                                                    {{filter.item}}
-                                                                </mat-option>
-                                                            </mat-select>
-                                                        </mat-form-field>
-                                                    </div>
-
-                                                    <div class="col-4">
-                                                        <mat-form-field class="w-100" appearance="fill">
-                                                            <mat-label>Default destination</mat-label>
-                                                            <input matInput placeholder="Default destination" />
-                                                        </mat-form-field>
-                                                    </div>
-                                                    <div class="col-4"></div>
-                                                    <div class="col-4"></div>
-
-                                                    <div class="col-2">
-                                                        <mat-form-field class="w-100" appearance="fill">
-                                                            <mat-label>Update field</mat-label>
-                                                            <input matInput placeholder="Update field" />
-                                                        </mat-form-field>
-                                                    </div>
-                                                    <div class="col-2">
-                                                        <mat-form-field appearance="fill" class="w-100">
-                                                            <mat-label>Field type</mat-label>
-                                                            <mat-select>
-                                                                <mat-option *ngFor="let filter of filterItems" [value]="filter.id">
-                                                                    {{filter.item}}
-                                                                </mat-option>
-                                                            </mat-select>
-                                                        </mat-form-field>
-                                                    </div>
-                                                    <div class="col-2">
-                                                        <mat-form-field class="w-100" appearance="fill">
-                                                            <mat-label>Based on</mat-label>
-                                                            <input matInput placeholder="Based on" />
-                                                        </mat-form-field>
-                                                    </div>
-                                                    <div class="col-2">
-                                                        <mat-form-field appearance="fill" class="w-100">
-                                                            <mat-label>Field type</mat-label>
-                                                            <mat-select>
-                                                                <mat-option *ngFor="let filter of filterItems" [value]="filter.id">
-                                                                    {{filter.item}}
-                                                                </mat-option>
-                                                            </mat-select>
-                                                        </mat-form-field>
-                                                    </div>
-                                                    <div class="col-2">
-                                                        <mat-form-field class="w-100" appearance="fill">
-                                                            <mat-label>to</mat-label>
-                                                            <input matInput placeholder="to" />
-                                                        </mat-form-field>
-                                                    </div>
-                                                    <div class="col-2">
-                                                        <mat-form-field class="w-100" appearance="fill">
-                                                            <mat-label>Value</mat-label>
-                                                            <input matInput placeholder="Description" />
-                                                        </mat-form-field>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </fieldset>
-                                    </div>
+                                    </fieldset>
+                                    <!-- </div> -->
                                     <!-- new rule template -->
-                                    <ng-template #searchRule>
-                                        <fieldset class="formFieldSet">
-                                            <div class="container-fluid pt-3">
-                                                <legend>Add Rule</legend>
-                                                <div class="row gx-2">
-                                                    <div class="col-12">
-                                                        <mat-form-field class="w-100" appearance="fill">
-                                                            <mat-label>Name</mat-label>
-                                                            <input matInput placeholder="Name" />
-                                                        </mat-form-field>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <mat-form-field class="w-100" appearance="fill">
-                                                            <mat-label>Description</mat-label>
-                                                            <input matInput placeholder="Description" />
-                                                        </mat-form-field>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <mat-form-field appearance="fill" class="w-100">
-                                                            <mat-label>Rule Name</mat-label>
-                                                            <mat-select>
-                                                                <mat-option *ngFor="let filter of filterItems" [value]="filter.id">
-                                                                    {{filter.item}}
-                                                                </mat-option>
-                                                            </mat-select>
-                                                        </mat-form-field>
-                                                    </div>
-
-                                                    <div class="col-4">
-                                                        <mat-form-field appearance="fill" class="w-100">
-                                                            <mat-label>Type</mat-label>
-                                                            <mat-select>
-                                                                <mat-option>
-                                                                    Work item history
-                                                                </mat-option>
-                                                                <mat-option>
-                                                                    Default destination
-                                                                </mat-option>
-                                                            </mat-select>
-                                                        </mat-form-field>
-                                                    </div>
-                                                    <div class="col-12"></div>
-                                                    <div class="col-2 pb-3">
-                                                        <label class="d-block">Active</label>
-                                                        <mat-slide-toggle> </mat-slide-toggle>
-                                                    </div>
-
-                                                    <div class="col-12"></div>
+                                    <!-- <ng-template #searchRule> -->
+                                    <fieldset class="formFieldSet">
+                                        <div class="container-fluid pt-3">
+                                            <!-- <legend>Add Rule</legend> -->
+                                            <div class="row gx-2">
+                                                <div class="col-12">
+                                                    <mat-form-field class="w-100" appearance="fill">
+                                                        <mat-label>Name</mat-label>
+                                                        <input matInput placeholder="Name" />
+                                                    </mat-form-field>
                                                 </div>
+                                                <div class="col-12">
+                                                    <mat-form-field class="w-100" appearance="fill">
+                                                        <mat-label>Description</mat-label>
+                                                        <input matInput placeholder="Description" />
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-4">
+                                                    <mat-form-field appearance="fill" class="w-100">
+                                                        <mat-label>Rule Name</mat-label>
+                                                        <mat-select>
+                                                            <mat-option *ngFor="let filter of filterItems" [value]="filter.id">
+                                                                {{filter.item}}
+                                                            </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+
+                                                <div class="col-4">
+                                                    <mat-form-field appearance="fill" class="w-100">
+                                                        <mat-label>Type</mat-label>
+                                                        <mat-select (selectionChange)="onChangeType($event.value)">
+                                                            <mat-option *ngFor="let type of types" [value]="type">{{type}}</mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-12"></div>
+                                                <div class="col-2 pb-3">
+                                                    <label class="d-block">Active</label>
+                                                    <mat-slide-toggle> </mat-slide-toggle>
+                                                </div>
+
+                                                <div class="col-12"></div>
+                                            </div>
+
+                                            <div class="row gx-2" *ngFor="let item of [1,2,3,4]" [hidden]="hiddenCriteria">
                                                 <legend>Criteria</legend>
-                                                <div class="row gx-2" *ngFor="let item of [1,2,3,4]">
-                                                    <div class="col-3">
-                                                        <mat-form-field appearance="fill" class="w-100">
-                                                            <mat-label>Item Type</mat-label>
-                                                            <mat-select>
-                                                                <mat-option>
-                                                                    Select
-                                                                </mat-option>
-                                                            </mat-select>
-                                                        </mat-form-field>
-                                                    </div>
+                                                <div class="col-3">
+                                                    <mat-form-field appearance="fill" class="w-100">
+                                                        <mat-label>Item Type</mat-label>
+                                                        <mat-select>
+                                                            <mat-option>
+                                                                Select
+                                                            </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
 
-                                                    <div class="col-3">
-                                                        <mat-form-field class="w-100" appearance="fill">
-                                                            <mat-label>Operator</mat-label>
-                                                            <mat-select>
-                                                                <mat-option>Equal</mat-option>
-                                                                <mat-option>Greater</mat-option>
-                                                                <mat-option>Less</mat-option>
-                                                                <mat-option>Not equal</mat-option>
-                                                            </mat-select>
-                                                        </mat-form-field>
-                                                    </div>
-                                                    <div class="col-3">
-                                                        <mat-form-field class="w-100" appearance="fill">
-                                                            <mat-label>Value</mat-label>
-                                                            <input matInput placeholder="Description" />
-                                                        </mat-form-field>
-                                                    </div>
+                                                <div class="col-3">
+                                                    <mat-form-field class="w-100" appearance="fill">
+                                                        <mat-label>Operator</mat-label>
+                                                        <mat-select>
+                                                            <mat-option>Equal</mat-option>
+                                                            <mat-option>Greater</mat-option>
+                                                            <mat-option>Less</mat-option>
+                                                            <mat-option>Not equal</mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-3">
+                                                    <mat-form-field class="w-100" appearance="fill">
+                                                        <mat-label>Value</mat-label>
+                                                        <input matInput placeholder="Description" />
+                                                    </mat-form-field>
+                                                </div>
 
-                                                    <div class="col-2">
-                                                        <button mat-icon-button color="primary">
+                                                <div class="col-2">
+                                                    <button mat-icon-button color="primary">
                                                             <mat-icon>add</mat-icon>
                                                         </button>
-                                                        <button mat-icon-button color="warn">
+                                                    <button mat-icon-button color="warn">
                                                             <mat-icon>remove</mat-icon>
                                                         </button>
-                                                    </div>
                                                 </div>
                                             </div>
-                                        </fieldset>
-                                    </ng-template>
+                                            <div class="row gx-2" [hidden]="hiddenDistribution">
+                                                <div class="container-fluid pt-3">
+
+                                                    <div class="row gx-2">
+                                                        <div class="col-4">
+                                                            <mat-form-field class="w-100" appearance="fill">
+                                                                <mat-label>Router based on</mat-label>
+                                                                <input matInput placeholder="Router based on" />
+                                                            </mat-form-field>
+                                                        </div>
+
+                                                        <div class="col-8">
+                                                            <mat-form-field appearance="fill" class="w-100">
+                                                                <mat-label>Type of Associate filter</mat-label>
+                                                                <mat-select>
+                                                                    <mat-option *ngFor="let filter of filterItems" [value]="filter.id">
+                                                                        {{filter.item}}
+                                                                    </mat-option>
+                                                                </mat-select>
+                                                            </mat-form-field>
+                                                        </div>
+
+                                                        <div class="col-4">
+                                                            <mat-form-field class="w-100" appearance="fill">
+                                                                <mat-label>Default destination</mat-label>
+                                                                <input matInput placeholder="Default destination" />
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div class="col-4"></div>
+                                                        <div class="col-4"></div>
+
+                                                        <div class="col-2">
+                                                            <mat-form-field class="w-100" appearance="fill">
+                                                                <mat-label>Update field</mat-label>
+                                                                <input matInput placeholder="Update field" />
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div class="col-2">
+                                                            <mat-form-field appearance="fill" class="w-100">
+                                                                <mat-label>Field type</mat-label>
+                                                                <mat-select>
+                                                                    <mat-option *ngFor="let filter of filterItems" [value]="filter.id">
+                                                                        {{filter.item}}
+                                                                    </mat-option>
+                                                                </mat-select>
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div class="col-2">
+                                                            <mat-form-field class="w-100" appearance="fill">
+                                                                <mat-label>Based on</mat-label>
+                                                                <input matInput placeholder="Based on" />
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div class="col-2">
+                                                            <mat-form-field appearance="fill" class="w-100">
+                                                                <mat-label>Field type</mat-label>
+                                                                <mat-select>
+                                                                    <mat-option *ngFor="let filter of filterItems" [value]="filter.id">
+                                                                        {{filter.item}}
+                                                                    </mat-option>
+                                                                </mat-select>
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div class="col-2">
+                                                            <mat-form-field class="w-100" appearance="fill">
+                                                                <mat-label>to</mat-label>
+                                                                <input matInput placeholder="to" />
+                                                            </mat-form-field>
+                                                        </div>
+                                                        <div class="col-2">
+                                                            <mat-form-field class="w-100" appearance="fill">
+                                                                <mat-label>Value</mat-label>
+                                                                <input matInput placeholder="Description" />
+                                                            </mat-form-field>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <!-- </ng-template> -->
                                 </div>
                             </div>
                             <div class="col-12 col-lg-4">
