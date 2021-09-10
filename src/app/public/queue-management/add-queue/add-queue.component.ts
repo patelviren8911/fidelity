@@ -10,6 +10,7 @@ import { FilterRuleDialogComponent } from '../filter-rule-dialog/filter-rule-dia
 })
 export class AddQueueComponent implements OnInit, AfterViewInit {
   step = 2;
+  myControl = new FormControl();
   panelOpenState = false;
   qIFormGroup!: FormGroup;
   schedulerFormGroup!: FormGroup;
@@ -17,7 +18,8 @@ export class AddQueueComponent implements OnInit, AfterViewInit {
   isNewRule?:boolean;
   hiddenCriteria?:boolean;
   hiddenDistribution?:boolean;
-  types:any[]=['Work Item History', 'Default destination'];
+  rules:any[]=['Item 1', 'Destination 2'];
+  types:any[]=['Work Item History', 'Default destination', 'Load Balance', 'Plan Assignment', 'Previous Distribution'];
   filterItems?: any[];
   constructor(public utilService: UtilService, public dialog: MatDialog) {}
 
@@ -93,11 +95,11 @@ export class AddQueueComponent implements OnInit, AfterViewInit {
   }
 
   onChangeType(value:any) {
+    this.hiddenCriteria = true;
+    this.hiddenDistribution = true;
     if (value === 'Work Item History') {
       this.hiddenCriteria = false;
-      this.hiddenDistribution = true;
     } else if (value === 'Default destination') {
-      this.hiddenCriteria = true;
       this.hiddenDistribution = false;
     }
   }
