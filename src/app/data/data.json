@@ -1,0 +1,13 @@
+{
+    "queueInfo": {
+        "queueName": "Sample Queue 1",
+        "queueDescription": "Sample Queue Description",
+        "businessGroup": "Sample Business Group",
+        "active": true,
+        "fifoEnables": false,
+        "queueRecipients": "test@gmail.com"
+    },
+    "addRules": {
+
+    }
+}

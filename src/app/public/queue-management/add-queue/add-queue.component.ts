@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UtilService } from 'src/app/services/util.service';
 import { MatDialog } from '@angular/material/dialog';
+import { ManageQueueService } from '../../../services/manage-queue.service';
 import { FilterRuleDialogComponent } from '../filter-rule-dialog/filter-rule-dialog.component';
 @Component({
   selector: 'app-add-queue',
@@ -21,9 +22,12 @@ export class AddQueueComponent implements OnInit, AfterViewInit {
   rules:any[]=['Item 1', 'Destination 2'];
   types:any[]=['Work Item History', 'Default destination', 'Load Balance', 'Plan Assignment', 'Previous Distribution'];
   filterItems?: any[];
-  constructor(public utilService: UtilService, public dialog: MatDialog) {}
+  constructor(public utilService: UtilService, public dialog: MatDialog,
+    private manageQueueService: ManageQueueService) {}
 
   ngOnInit(): void {
+
+    
     this.isNewRule = true;
     this.hiddenCriteria = true;
     this.hiddenDistribution = true;
@@ -34,11 +38,10 @@ export class AddQueueComponent implements OnInit, AfterViewInit {
       queueRecipients: new FormControl(''),
       active: new FormControl(''),
       fifoEnables: new FormControl(''),
-
     });
     this.filersFormGroup = new FormGroup({
       filterRules: new FormControl(),
-      
+      ruleName: new FormControl (''),
     });
 
     this.filterItems = [
@@ -67,9 +70,16 @@ export class AddQueueComponent implements OnInit, AfterViewInit {
         ],
       },
     ];
+    this.loadData();
   }
 
   ngAfterViewInit(): void {}
+
+loadData() {
+  this.manageQueueService.getData().subscribe(res => {
+    this.qIFormGroup.patchValue(res.queueInfo);
+  })
+}
 
   setStep(index: number) {
     this.step = index;
@@ -81,6 +91,14 @@ export class AddQueueComponent implements OnInit, AfterViewInit {
 
   prevStep() {
     this.step--;
+  }
+
+  saveChanges() {
+    console.log('test11---', this.schedulerFormGroup);
+  }
+
+  submitQueueForm() {
+    console.log('test---', this.qIFormGroup.value);
   }
 
   openDialog(formData: any) {
