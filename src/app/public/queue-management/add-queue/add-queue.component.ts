@@ -37,11 +37,48 @@ export class AddQueueComponent implements OnInit, AfterViewInit {
       businessGroup: new FormControl(''),
       queueRecipients: new FormControl(''),
       active: new FormControl(''),
-      fifoEnables: new FormControl(''),
+      fifoEnables: new FormControl('')
     });
     this.filersFormGroup = new FormGroup({
-      filterRules: new FormControl(),
-      ruleName: new FormControl (''),
+      ruleName: new FormControl(''),
+      ruleType: new FormControl (''),
+      isRuleActive: new FormControl (''),
+      itemType: new FormControl (''),
+      rulesOperator: new FormControl (''),
+      description: new FormControl (''),
+      routerBasedOn: new FormControl (''),
+      associateFilterType: new FormControl (''),
+      defaultDestination: new FormControl (''),
+      updateField: new FormControl (''),
+      UpdateFieldType: new FormControl (''),
+      basedOn: new FormControl (''),
+      basedOnFieldType: new FormControl (''),
+      to: new FormControl (''),
+      value: new FormControl ('')
+    });
+
+    this.schedulerFormGroup = new FormGroup({
+      mActive: new FormControl(''),
+      mStartTime: new FormControl(''),
+      mEndTime: new FormControl(''),
+      tActive: new FormControl(''),
+      tStartTime: new FormControl(''),
+      tEndTime: new FormControl(''),
+      wActive: new FormControl(''),
+      wStartTime: new FormControl(''),
+      wEndTime: new FormControl(''),
+      thActive: new FormControl(''),
+      thStartTime: new FormControl(''),
+      thEndTime: new FormControl(''),
+      fActive: new FormControl(''),
+      fStartTime: new FormControl(''),
+      fEndTime: new FormControl(''),
+      sActive: new FormControl(''),
+      sStartTime: new FormControl(''),
+      sEndTime: new FormControl(''),
+      suActive: new FormControl(''),
+      suStartTime: new FormControl(''),
+      suEndTime: new FormControl('')
     });
 
     this.filterItems = [
@@ -78,6 +115,8 @@ export class AddQueueComponent implements OnInit, AfterViewInit {
 loadData() {
   this.manageQueueService.getData().subscribe(res => {
     this.qIFormGroup.patchValue(res.queueInfo);
+    this.filersFormGroup.patchValue(res.addRules);
+    //this.schedulerFormGroup.patchValue(res.schedulerInfo);
   })
 }
 

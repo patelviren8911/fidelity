@@ -8,6 +8,43 @@
         "queueRecipients": "test@gmail.com"
     },
     "addRules": {
-
+        "ruleName": "Rule 1",
+        "ruleType": "Distribution Filter",
+        "isRuleActive": true,
+        "itemType": "Item Type 1",
+        "rulesOperator": "Greater",
+        "description": "Testing",
+        "routerBasedOn": "Testing Router",
+        "associateFilterType": "Rule 2",
+        "defaultDestination": "Sample Destination",
+        "updateField": "Test1",
+        "UpdateFieldType": "Router",
+        "basedOn": "Filter",
+        "basedOnFieldType": "Router 1",
+        "to": "Filter 1",
+        "value": "Rules Filter"
+    },
+    "schedulerInfo": {
+        "mActive": true,
+        "mStartTime": "08:00",
+        "mEndTime": "16:00",
+        "tActive": true,
+        "tStartTime": "06:00",
+        "tEndTime": "12:00",
+        "wActive": false,
+        "wStartTime": "",
+        "wEndTime": "",
+        "thActive": true,
+        "thStartTime": "05:00",
+        "thEndTime": "12:00",
+        "fActive": true,
+        "fStartTime": "04:00",
+        "fEndTime": "11:00",
+        "sActive": true,
+        "sStartTime": "07:30",
+        "sEndTime": "12:30",
+        "suActive": true,
+        "suStartTime": "09:00",
+        "suEndTime": "20:00"
     }
 }

@@ -10,7 +10,6 @@ import sampleData from '../data/data.json';
 export class ManageQueueService {
   api = environment.api;
   constructor(private http: HttpClient) { }
-  data: any = sampleData;
 
   getData(): Observable<any> {
     return of(sampleData).pipe();
