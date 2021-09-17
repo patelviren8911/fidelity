@@ -116,7 +116,7 @@ loadData() {
   this.manageQueueService.getData().subscribe(res => {
     this.qIFormGroup.patchValue(res.queueInfo);
     this.filersFormGroup.patchValue(res.addRules);
-    //this.schedulerFormGroup.patchValue(res.schedulerInfo);
+    this.schedulerFormGroup.patchValue(res.schedulerInfo);
   })
 }
 
