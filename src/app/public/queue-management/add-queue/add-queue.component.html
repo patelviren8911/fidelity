@@ -119,11 +119,11 @@
                                             </td>
                                             <td>Tuesday</td>
                                             <td>
-                                                <input [ngxTimepicker]="tsPicker" placeholder="start time " formControlName="tStartTime" />
+                                                <input [ngxTimepicker]="tsPicker" placeholder="start time" formControlName="tStartTime" />
                                                 <ngx-material-timepicker #tsPicker></ngx-material-timepicker>
                                             </td>
                                             <td>
-                                                <input [ngxTimepicker]="tePicker" placeholder="end time " formControlName="tEndTime" />
+                                                <input [ngxTimepicker]="tePicker" placeholder="end time" formControlName="tEndTime" />
                                                 <ngx-material-timepicker #tePicker></ngx-material-timepicker>
                                             </td>
                                         </tr>
@@ -133,11 +133,11 @@
                                             </td>
                                             <td>Wednesday</td>
                                             <td>
-                                                <input [ngxTimepicker]="wsPicker" placeholder="start time " formControlName="wStartTime" />
+                                                <input [ngxTimepicker]="wsPicker" placeholder="start time" formControlName="wStartTime" />
                                                 <ngx-material-timepicker #wsPicker></ngx-material-timepicker>
                                             </td>
                                             <td>
-                                                <input [ngxTimepicker]="wePicker" placeholder="end time " formControlName="wEndTime" />
+                                                <input [ngxTimepicker]="wePicker" placeholder="end time" formControlName="wEndTime" />
                                                 <ngx-material-timepicker #wePicker></ngx-material-timepicker>
                                             </td>
                                         </tr>
@@ -147,11 +147,11 @@
                                             </td>
                                             <td>Thursday</td>
                                             <td>
-                                                <input [ngxTimepicker]="thsPicker" placeholder="start time " formControlName="thStartTime" />
+                                                <input [ngxTimepicker]="thsPicker" placeholder="start time" formControlName="thStartTime" />
                                                 <ngx-material-timepicker #thsPicker></ngx-material-timepicker>
                                             </td>
                                             <td>
-                                                <input [ngxTimepicker]="thePicker" placeholder="end time " formControlName="thEndTime" />
+                                                <input [ngxTimepicker]="thePicker" placeholder="end time" formControlName="thEndTime" />
                                                 <ngx-material-timepicker #thePicker></ngx-material-timepicker>
                                             </td>
                                         </tr>
@@ -161,11 +161,11 @@
                                             </td>
                                             <td>Friday</td>
                                             <td>
-                                                <input [ngxTimepicker]="fsPicker" placeholder="start time " formControlName="fStartTime" />
+                                                <input [ngxTimepicker]="fsPicker" placeholder="start time" formControlName="fStartTime" />
                                                 <ngx-material-timepicker #fsPicker></ngx-material-timepicker>
                                             </td>
                                             <td>
-                                                <input [ngxTimepicker]="fePicker" placeholder="end time " formControlName="fEndTime" />
+                                                <input [ngxTimepicker]="fePicker" placeholder="end time" formControlName="fEndTime" />
                                                 <ngx-material-timepicker #fePicker></ngx-material-timepicker>
                                             </td>
                                         </tr>
@@ -175,11 +175,11 @@
                                             </td>
                                             <td>Saturday</td>
                                             <td>
-                                                <input [ngxTimepicker]="ssPicker" placeholder="start time " formControlName="sStartTime" />
+                                                <input [ngxTimepicker]="ssPicker" placeholder="start time" formControlName="sStartTime" />
                                                 <ngx-material-timepicker #ssPicker></ngx-material-timepicker>
                                             </td>
                                             <td>
-                                                <input [ngxTimepicker]="sePicker" placeholder="end time " formControlName="sEndTime" />
+                                                <input [ngxTimepicker]="sePicker" placeholder="end time" formControlName="sEndTime" />
                                                 <ngx-material-timepicker #sePicker></ngx-material-timepicker>
                                             </td>
                                         </tr>
@@ -189,11 +189,11 @@
                                             </td>
                                             <td>Sunday</td>
                                             <td>
-                                                <input [ngxTimepicker]="sunsPicker" placeholder="start time " formControlName="suStartTime" />
+                                                <input [ngxTimepicker]="sunsPicker" placeholder="start time" formControlName="suStartTime" />
                                                 <ngx-material-timepicker #sunsPicker></ngx-material-timepicker>
                                             </td>
                                             <td>
-                                                <input [ngxTimepicker]="sunePicker" placeholder="end time " formControlName="suEndTime" />
+                                                <input [ngxTimepicker]="sunePicker" placeholder="end time" formControlName="suEndTime" />
                                                 <ngx-material-timepicker #sunePicker></ngx-material-timepicker>
                                             </td>
                                         </tr>
@@ -215,15 +215,15 @@
                 </mat-expansion-panel-header>
 
                 <form [formGroup]="filersFormGroup">
-                    <div class="container-fluid ">
-                        <div class="row ">
-                            <div class="col-12 col-lg-12 ">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12 col-lg-12">
                                 <div class="row ">
-                                    <fieldset class="formFieldSet ">
+                                    <fieldset class="formFieldSet">
 
                                     </fieldset>
-                                    <fieldset class="formFieldSet ">
-                                        <div class="container-fluid pt-3 ">
+                                    <fieldset class="formFieldSet">
+                                        <div class="container-fluid pt-3">
 
                                             <div class="row gx-2 ">
 
@@ -239,16 +239,16 @@
                                                 </div>
 
                                                 <div class="col-4 ">
-                                                    <mat-form-field appearance="fill" class="w-100 ">
+                                                    <mat-form-field appearance="fill" class="w-100">
                                                         <mat-label>Type</mat-label>
                                                         <mat-select (selectionChange)="onChangeType($event.value) " formControlName="ruleType">
                                                             <mat-option *ngFor="let type of types " [value]="type">{{type}}</mat-option>
                                                         </mat-select>
                                                     </mat-form-field>
                                                 </div>
-                                                <div class="col-12 "></div>
-                                                <div class="col-2 pb-3 ">
-                                                    <label class="d-block ">Active</label>
+                                                <div class="col-1 "></div>
+                                                <div class="col-2 pb-3">
+                                                    <label class="d-block">Active</label>
                                                     <mat-slide-toggle formControlName="isRuleActive"> </mat-slide-toggle>
                                                 </div>
 
@@ -273,7 +273,7 @@
                                                     </div>
 
                                                     <div class="col-3 ">
-                                                        <mat-form-field class="w-100 " appearance="fill">
+                                                        <mat-form-field class="w-100" appearance="fill">
                                                             <mat-label>Operator</mat-label>
                                                             <mat-select formControlName="rulesOperator">
                                                                 <mat-option>Equal</mat-option>
@@ -283,18 +283,18 @@
                                                             </mat-select>
                                                         </mat-form-field>
                                                     </div>
-                                                    <div class="col-3 ">
-                                                        <mat-form-field class="w-100 " appearance="fill">
+                                                    <div class="col-3">
+                                                        <mat-form-field class="w-100" appearance="fill">
                                                             <mat-label>Value</mat-label>
                                                             <input matInput placeholder="Description " formControlName="description" />
                                                         </mat-form-field>
                                                     </div>
 
                                                     <div class="col-2 ">
-                                                        <button mat-icon-button color="primary ">
+                                                        <button mat-icon-button color="primary">
                                                             <mat-icon>add</mat-icon>
                                                         </button>
-                                                        <button mat-icon-button color="warn ">
+                                                        <button mat-icon-button color="warn">
                                                             <mat-icon>remove</mat-icon>
                                                         </button>
                                                     </div>
