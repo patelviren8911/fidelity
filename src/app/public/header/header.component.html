@@ -6,29 +6,31 @@
         <img src="https://www.fidelity.com/intlacct/images/fidelityweblogo.gif" alt="">
     </a>
     <span class="flex-fill"></span>
-    <button mat-icon-button>
+    <!-- <button mat-icon-button>
         <mat-icon>notifications</mat-icon>
-    </button>
+    </button> -->
     <button mat-stroked-button class="rounded-pill px-2" [matMenuTriggerFor]="menu">
-        <span>
+        <!-- <span>
             <img src="https://i.pravatar.cc/25?img=9" class="img-fluid rounded-circle" alt="">
-        </span>
-        <span class="mx-2">Disha</span>
+        </span> -->
+        <mat-icon matListIcon>account_circle</mat-icon>
+        <span class="mx-2">Profile</span>
         <mat-icon>expand_more</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
         <mat-list>
             <mat-list-item>
-                <img matListAvatar src="https://i.pravatar.cc/40?img=9" class="img-fluid rounded-circle">
-                <h3 matLine> Disha Garg</h3>
+                <!-- <img matListAvatar src="https://i.pravatar.cc/40?img=9" class="img-fluid rounded-circle"> -->
+                <mat-icon matListIcon>account_circle</mat-icon>
+                <h3 matLine> {{userProfile?.name}}</h3>
                 <small matLine>
-                    <span> disha@email.com </span>
+                    <span> Profile123@email.com </span>
                 </small>
             </mat-list-item>
             <mat-divider></mat-divider>
             <mat-list-item>
-                <mat-icon matListIcon>settings</mat-icon>
-                <h3 matLine> Settings </h3>
+                <mat-icon matListIcon>manage_accounts</mat-icon>
+                <h3 matLine> Business Manager </h3>
             </mat-list-item>
             <mat-divider></mat-divider>
             <mat-list-item>
